@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <style>
+
+     table,
+    th,
+    td {
+
+       font-family:'Century Gothic',CenturyGothic,AppleGothic,sans-serif;
+           text-align: center;
+           border: 1px solid black;
+           border-collapse: collapse;
+           white-space: nowrap;
+
+    }
+
+    </style>
+</head>
+<body>
+
+
+<table>
+
+<tr  style="background-color:#FFD897; font-size:14px; padding: 9px 8px 9px 8px;">
+    <th  colspan="17" style="width:70px">Summary for FTG Accounts : <span th:text="${mainDto.getTodayDate()}"> </span></th>
+
+</tr>
+
+    <tr style="background-color:#b6cff2; font-size:14px; padding: 9px 8px 9px 8px;">
+        <th style="width:70px">SL No</th>
+        <th style="width:200px">Account Number</th>
+        <th style="width:190px">Account Currency</th>
+        <th style="width:170px">Account Class</th>
+        <th style="width:200px">Account Title</th>
+        <th style="width:170px">No. Of PDC</th>
+        <th style="width:170px">Total</th>
+
+
+    </tr>
+
+    <div th:each="srDto : ${ mainDto.getFtgmaptoset() }">
+        <tr style="font-size:12px;">
+
+
+
+            <td th:text="${mainDto.serialNum()}">---</td>
+            <td th:text="${mainDto.isNullOrEmpty(mainDto.getFTG(srDto).getAccountNumber())}">---</td>
+            <td th:text="${mainDto.isNullOrEmpty(mainDto.getFTG(srDto).getAccountCurrency())}">---</td>
+            <td th:text="${mainDto.isNullOrEmpty(mainDto.getFTG(srDto).getAccountClass())}">---</td>
+            <td th:text="${mainDto.isNullOrEmpty(mainDto.getFTG(srDto).getAccountTitle())}">---</td>
+            <td th:text="${mainDto.intToString(mainDto.getFTG(srDto).getPdcNo())}">---</td>
+            <td th:text="${mainDto.doubleToString(mainDto.getFTG(srDto).getAmount())}">---</td>
+
+
+
+        </tr>
+
+
+    </div>
+
+
+
+</table>
+
+<p></p>
+<p></p>
+
+<table>
+
+    <tr  style="background-color:#FFD897; font-size:14px; padding: 9px 8px 9px 8px;">
+        <th  colspan="17" style="width:70px">Summary for LRG Accounts : <span th:text="${mainDto.getTodayDate()}"> </span></th>
+
+    </tr>
+
+    <tr style="background-color:#b6cff2; font-size:14px; padding: 9px 8px 9px 8px;">
+        <th style="width:70px">SL No</th>
+        <th style="width:200px">Account Number</th>
+        <th style="width:190px">Account Currency</th>
+        <th style="width:170px">Account Class</th>
+        <th style="width:200px">Account Title</th>
+        <th style="width:170px">No. Of PDC</th>
+        <th style="width:170px">Total</th>
+
+
+    </tr>
+
+    <div th:each="srDto : ${ mainDto.getLrgmaptoset() }">
+        <tr style="font-size:12px;">
+
+
+
+            <td th:text="${mainDto.serialNumLRG()}">---</td>
+            <td th:text="${mainDto.isNullOrEmpty(mainDto.getLRG(srDto).getAccountNumber())}">---</td>
+            <td th:text="${mainDto.isNullOrEmpty(mainDto.getLRG(srDto).getAccountCurrency())}">---</td>
+            <td th:text="${mainDto.isNullOrEmpty(mainDto.getLRG(srDto).getAccountClass())}">---</td>
+            <td th:text="${mainDto.isNullOrEmpty(mainDto.getLRG(srDto).getAccountTitle())}">---</td>
+            <td th:text="${mainDto.intToString(mainDto.getLRG(srDto).getPdcNo())}">---</td>
+            <td th:text="${mainDto.doubleToString(mainDto.getLRG(srDto).getAmount())}">---</td>
+
+
+
+        </tr>
+
+
+    </div>
+
+
+
+</table>
+
+
+
+
+</body>
+</html>
